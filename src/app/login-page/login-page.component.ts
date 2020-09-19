@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent {
 
   public emailForm = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required])
@@ -28,7 +28,7 @@ export class LoginPageComponent implements OnInit {
     private router: Router
     ) {
    }
-   
+
   get emailControl(): any{
     return this.emailForm.get('email');
   }
@@ -42,8 +42,6 @@ export class LoginPageComponent implements OnInit {
     this.apiService.getRequest<Object[]>('/users', httpParams).subscribe(
       data => {
         if(data.length) {
-          console.log(data);
-
           /* 
           Just a note here, for this functionality I think it would be better to have a different endpoint to get a single user object instead, to avoid hard coding data[0]
           I am assuming the emails are unqiue (I see they are unique from the "get all" request).
@@ -51,7 +49,7 @@ export class LoginPageComponent implements OnInit {
           this.userService.setUserAfterSuccessfulLogin(data[0] as User);
           this.router.navigateByUrl('/posts')
         } else {
-          //No user returned
+          //No user returned, show error message
           this.showErrorMessage = true;
         }
       }

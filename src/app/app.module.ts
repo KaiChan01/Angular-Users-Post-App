@@ -9,17 +9,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginPageModule } from './login-page/login-page.module';
 import { HttpClientModule } from '@angular/common/http';
+import { PostsPageComponent } from './posts-page/posts-page.component';
+import { PostsPageModule } from './posts-page/posts-page.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageHeaderComponent,
+    PostsPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LoginPageModule,
+    PostsPageModule,
     FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
