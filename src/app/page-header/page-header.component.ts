@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterEvent, RoutesRecognized, NavigationEnd } from '@angular/router';
+import { UserService } from '../Global/Services/user-service';
 
 @Component({
   selector: 'app-page-header',
@@ -11,7 +12,10 @@ export class PageHeaderComponent implements OnInit  {
   public pageTitle = '';
   public currentURL = '';
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private userService: UserService
+    ) {
    }
 
   ngOnInit(): void {
@@ -24,7 +28,10 @@ export class PageHeaderComponent implements OnInit  {
         this.currentURL = this.router.url;
       }
     });
+  }
 
-    
+  signOut() {
+    this.userService.signoutUser();
+    this.router.navigateByUrl('/login')
   }
 }

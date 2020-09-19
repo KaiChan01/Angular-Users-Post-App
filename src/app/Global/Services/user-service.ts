@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { User } from '../Model/User';
 import { CanActivate, Router } from '@angular/router';
 
@@ -7,15 +7,20 @@ import { CanActivate, Router } from '@angular/router';
   })
 export class UserService implements CanActivate { 
 
-    private user: User = null;
+    private localStorageString = 'angularExerciseUser';
+    private user;
 
     constructor(private router: Router) {
-
+        this.user = localStorage.getItem(this.localStorageString);
     }
     
     setUserAfterSuccessfulLogin(user: User) {
         this.user = user;
-        console.log(this.user);
+        localStorage.setItem(this.localStorageString, this.user);
+    }
+
+    signoutUser() {
+        localStorage.removeItem(this.localStorageString);
     }
 
     /*

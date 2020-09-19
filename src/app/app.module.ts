@@ -11,6 +11,7 @@ import { LoginPageModule } from './login-page/login-page.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PostsPageComponent } from './posts-page/posts-page.component';
 import { PostsPageModule } from './posts-page/posts-page.module';
+import { UserService } from './Global/Services/user-service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { PostsPageModule } from './posts-page/posts-page.module';
     MatButtonModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
