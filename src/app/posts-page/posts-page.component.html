@@ -1,8 +1,13 @@
-<mat-tab-group mat-align-tabs="center">
-    <mat-tab label="User posts">
-         Content 1 
-    </mat-tab>
-    <mat-tab label="Other posts">
-         Content 2 
-    </mat-tab>
-</mat-tab-group>
+<ng-container *ngIf="this.allPosts">
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="User posts">
+            <div class="postContainer">
+                <app-user-post [posts]="this.ownUserPosts"></app-user-post>    
+            </div>
+        </mat-tab>
+        <mat-tab label="Other posts">
+        <div class="postContainer"> </div>
+            Content 2 
+        </mat-tab>
+    </mat-tab-group>
+</ng-container>

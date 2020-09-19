@@ -13,6 +13,7 @@ export class PostsPageComponent implements OnInit {
   private userId: number;
   private allPosts: Post[];
   public ownUserPosts: Post[];
+  public otherUserPosts: Post[];
   
 
   constructor(
@@ -47,7 +48,7 @@ export class PostsPageComponent implements OnInit {
   }
 
   filterOtherPosts() {
-    this.ownUserPosts = this.allPosts.filter(post => {
+    this.otherUserPosts = this.allPosts.filter(post => {
       return post.userId !== this.userId
     });
   }

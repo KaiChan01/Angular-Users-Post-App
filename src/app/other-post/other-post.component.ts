@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Post } from '../Global/Model/Post';
+import { UserService } from '../Global/Services/user-service';
 
 @Component({
   selector: 'app-other-post',
   templateUrl: './other-post.component.html',
   styleUrls: ['./other-post.component.css']
 })
-export class OtherPostComponent implements OnInit {
+export class OtherPostComponent{
 
-  constructor() { }
+  @Input() posts: Post[];
 
-  ngOnInit(): void {
-  }
-
+  constructor(private userService: UserService) { }
 }
