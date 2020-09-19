@@ -1,7 +1,17 @@
 <div class="loginContainer">
-        <form>
+    <div>
+        <h1>Please login with your email</h1>
+        <form [formGroup]="emailForm" (ngSubmit)="submitEmail()">
             <mat-form-field>
-                <input matInput placeholder="example@email.com">
+                <input matInput [formControl]="emailControl" [errorStateMatcher]="emailErrorMatcher" placeholder="Example@email.com">
+                <mat-error *ngIf="emailControl.hasError('email') && !emailControl.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailControl.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
             </mat-form-field>
+            <button class="loginButton" mat-flat-button type="submit" [disabled]="!emailForm.valid">Log In</button>
         </form>
+    </div>
 </div>

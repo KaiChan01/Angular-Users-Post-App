@@ -1,6 +1,26 @@
 .loginContainer {
     height: 100%;
-    width: 100%;
-    padding: auto auto auto auto;
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.emailInput {
+    width: 700px;
+    height: 50px;
+}
+
+.loginButton {
+    margin: 10px;
+    width: 100px;
+    height: 30px;
+}
+
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+    color: black !important; 
+}
+
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: black !important;
+  } 

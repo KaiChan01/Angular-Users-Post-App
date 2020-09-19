@@ -23,7 +23,7 @@ import { LoginPageModule } from './login-page/login-page.module';
     FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
