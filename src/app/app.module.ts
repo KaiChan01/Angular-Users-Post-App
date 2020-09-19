@@ -11,14 +11,12 @@ import { LoginPageModule } from './login-page/login-page.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PostsPageModule } from './posts-page/posts-page.module';
 import { UserService } from './Global/Services/user-service';
-import { PostCardComponent } from './post-card/post-card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PageHeaderComponent,
-    PostCardComponent,
   ],
   imports: [
     BrowserModule,

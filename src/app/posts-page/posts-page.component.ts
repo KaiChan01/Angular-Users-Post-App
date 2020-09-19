@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../Global/Services/api-service';
 import { UserService } from '../Global/Services/user-service';
 import { Post } from '../Global/Model/Post';
+import { postEndpoint } from '../Global/Endpoints/endpoints';
 
 @Component({
   selector: 'app-posts-page',
@@ -11,7 +12,7 @@ import { Post } from '../Global/Model/Post';
 export class PostsPageComponent implements OnInit {
 
   private userId: number;
-  private allPosts: Post[];
+  public allPosts: Post[];
   public ownUserPosts: Post[];
   public otherUserPosts: Post[];
   
@@ -28,7 +29,7 @@ export class PostsPageComponent implements OnInit {
   }
 
   getAllPosts() {
-    this.apiService.getRequest<Post[]>('/posts').subscribe(
+    this.apiService.getRequest<Post[]>(postEndpoint).subscribe(
       data => {
         this.allPosts = data;
         this.filterOwnUserPosts();

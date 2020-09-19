@@ -1,1 +1,14 @@
-<p>post-card works!</p>
+<div class="cardPadding">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title *ngIf="this.posterName">{{this.posterName}}</mat-card-title>
+            <mat-card-title>{{this.postTitle}}</mat-card-title>
+        </mat-card-header>
+        <br>
+        <mat-card-content>
+            <p>
+                {{this.postDescription}}
+            </p>
+        </mat-card-content>
+    </mat-card>  
+</div>

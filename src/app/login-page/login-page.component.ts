@@ -6,6 +6,7 @@ import { HttpParams } from '@angular/common/http';
 import { UserService } from '../Global/Services/user-service';
 import { User } from '../Global/Model/User';
 import { Router } from '@angular/router';
+import { usersEndpoint, postEndpoint } from '../Global/Endpoints/endpoints';
 
 @Component({
   selector: 'app-login-page',
@@ -39,7 +40,7 @@ export class LoginPageComponent {
     const httpParams = new HttpParams()
     .set('email', this.emailForm.controls['email'].value);
 
-    this.apiService.getRequest<Object[]>('/users', httpParams).subscribe(
+    this.apiService.getRequest<Object[]>(usersEndpoint, httpParams).subscribe(
       data => {
         if(data && data.length) {
           /* 
@@ -47,7 +48,7 @@ export class LoginPageComponent {
           I am assuming the emails are unqiue (I see they are unique from the "get all" request).
           */
           this.userService.setUserAfterSuccessfulLogin(data[0] as User);
-          this.router.navigateByUrl('/posts')
+          this.router.navigateByUrl(postEndpoint)
         } else {
           //No user returned, show error message
           this.showErrorMessage = true;

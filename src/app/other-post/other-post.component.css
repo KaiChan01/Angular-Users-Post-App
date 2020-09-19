@@ -1,0 +1,8 @@
+.scrollableContainer {
+    height: 60vh;
+    width: 60vw;
+    border: 2px solid grey;
+    border-radius: 20px 20px;
+    overflow-y: scroll;
+    padding: 20px 20px 20px 20px;
+}

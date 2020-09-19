@@ -1,5 +1,5 @@
 <div class=scrollableContainer>
     <ng-container *ngFor="let post of this.posts">
-        
+        <app-post-card [postTitle]="post.title" [postDescription]="post.body"></app-post-card>
     </ng-container>
 </div>

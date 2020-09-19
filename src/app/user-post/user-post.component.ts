@@ -20,8 +20,6 @@ export class UserPostComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = this.userService.userInfo.id;
-
-    console.log(this.posts);
   }
 
   postNewPost() {

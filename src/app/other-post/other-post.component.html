@@ -1,1 +1,5 @@
-<p>other-post works!</p>
+<div *ngIf="this.otherPostsReady" class=scrollableContainer>
+    <ng-container *ngFor="let post of this.posts">
+        <app-post-card [posterName]="this.userNamesMap[post.userId]" [postTitle]="post.title" [postDescription]="post.body"></app-post-card>
+    </ng-container>
+</div>
