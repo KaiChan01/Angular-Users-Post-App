@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { EmailErrorMatcher } from '../Global/ErrorMatchers/EmailErrorMatcher';
+import { CommonErrorMatcher } from '../Global/ErrorMatchers/CommonErrorMatcher';
 import { ApiService } from '../Global/Services/api-service';
 import { HttpParams } from '@angular/common/http';
 import { UserService } from '../Global/Services/user-service';
@@ -19,7 +19,7 @@ export class LoginPageComponent {
     email: new FormControl('', [Validators.email, Validators.required])
   });
 
-  public emailErrorMatcher = new EmailErrorMatcher();
+  public emailErrorMatcher = new CommonErrorMatcher();
   public noUserFoundMessage = 'No user is associated with that email';
   public showErrorMessage = false;
 

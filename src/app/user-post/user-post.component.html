@@ -3,3 +3,23 @@
         <app-post-card [postTitle]="post.title" [postDescription]="post.body"></app-post-card>
     </ng-container>
 </div>
+<div class=postEntrySection>
+    <form name="postForm" [formGroup]="newPostForm" (ngSubmit)="postNewPost()">
+        <div>
+            <mat-form-field class="titleInput">
+                <textarea matInput [formControl]="titleControl" [errorStateMatcher]="postErrorMatcher" placeholder="Title"></textarea>
+                <mat-error *ngIf="titleControl.hasError('required')">
+                    Please enter a title for your post
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="bodyInput">
+
+                <textarea matInput [formControl]="bodyControl" [errorStateMatcher]="postErrorMatcher" placeholder="Content"></textarea>
+                <mat-error *ngIf="bodyControl.hasError('required')">
+                    Your post can't be empty
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <button mat-flat-button type="submit" [disabled]="!newPostForm.valid">Post</button>
+    </form>
+</div>
