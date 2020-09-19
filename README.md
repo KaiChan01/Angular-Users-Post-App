@@ -1,10 +1,10 @@
 # UsersPostsApp
 
+This project was coding exercise to create a simple user login and post forum app.
+For this project I used the Angular Materials library for the inputs components and CSS for styling and positioning.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Screenshot demo
 
@@ -49,3 +49,8 @@ In other posts, we can see posts made by other users.
 The posts display their username, title and body.
 
 ![Other posts](https://github.com/KaiChan01/Angular-Users-Post-App/blob/master/ScreenShots/Other%20posts.PNG)
+
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
