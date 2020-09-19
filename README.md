@@ -6,6 +6,12 @@ For this project I used the Angular Materials library for the inputs components 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
 
 
+# Set up
+1) Clone this repo
+2) Have node installed and set up
+3) run command "npm install" on project
+3) run command "ng serve"
+
 ## Screenshot demo
 
 ### Login page
