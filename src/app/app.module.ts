@@ -7,8 +7,8 @@ import { PageHeaderComponent } from './page-header/page-header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
 import { LoginPageModule } from './login-page/login-page.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { LoginPageModule } from './login-page/login-page.module';
     FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
-    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

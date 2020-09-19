@@ -13,5 +13,8 @@
             </mat-form-field>
             <button class="loginButton" mat-flat-button type="submit" [disabled]="!emailForm.valid">Log In</button>
         </form>
+        <ng-container *ngIf="showErrorMessage">
+            <h3>{{noUserFoundMessage}}</h3>
+        </ng-container>
     </div>
 </div>
