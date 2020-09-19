@@ -1,6 +1,6 @@
 # UsersPostsApp
 
-This project was coding exercise to create a simple user login and post forum app.
+This project was a coding exercise to create a simple user login and post forum app.
 For this project I used the Angular Materials library for the inputs components and CSS for styling and positioning.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
