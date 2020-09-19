@@ -9,15 +9,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginPageModule } from './login-page/login-page.module';
 import { HttpClientModule } from '@angular/common/http';
-import { PostsPageComponent } from './posts-page/posts-page.component';
 import { PostsPageModule } from './posts-page/posts-page.module';
 import { UserService } from './Global/Services/user-service';
+import { UserPostComponent } from './user-post/user-post.component';
+import { OtherPostComponent } from './other-post/other-post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageHeaderComponent,
-    PostsPageComponent,
+    UserPostComponent,
+    OtherPostComponent,
   ],
   imports: [
     BrowserModule,

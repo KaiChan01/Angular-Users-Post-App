@@ -41,7 +41,7 @@ export class LoginPageComponent {
 
     this.apiService.getRequest<Object[]>('/users', httpParams).subscribe(
       data => {
-        if(data.length) {
+        if(data && data.length) {
           /* 
           Just a note here, for this functionality I think it would be better to have a different endpoint to get a single user object instead, to avoid hard coding data[0]
           I am assuming the emails are unqiue (I see they are unique from the "get all" request).
@@ -52,6 +52,12 @@ export class LoginPageComponent {
           //No user returned, show error message
           this.showErrorMessage = true;
         }
+
+        //Add error handling here 
+      },
+      // Basic error handling
+      error => {
+        console.error(error);
       }
     );
   }

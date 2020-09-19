@@ -8,19 +8,23 @@ import { CanActivate, Router } from '@angular/router';
 export class UserService implements CanActivate { 
 
     private localStorageString = 'angularExerciseUser';
-    private user;
+    private user: User;
 
     constructor(private router: Router) {
-        this.user = localStorage.getItem(this.localStorageString);
+        this.user = JSON.parse(localStorage.getItem(this.localStorageString));
     }
     
     setUserAfterSuccessfulLogin(user: User) {
         this.user = user;
-        localStorage.setItem(this.localStorageString, this.user);
+        localStorage.setItem(this.localStorageString, JSON.stringify(this.user));
     }
 
     signoutUser() {
         localStorage.removeItem(this.localStorageString);
+    }
+
+    get userInfo(): User {
+        return this.user;
     }
 
     /*

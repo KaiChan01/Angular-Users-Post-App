@@ -1,0 +1,17 @@
+::ng-deep .mat-tab-label {
+    height: 10vh !important;
+    width: 50% !important;
+    color: black;
+    font-weight: 700;
+}
+
+/* Styles for the active tab label */
+::ng-deep .mat-tab-label.mat-tab-label-active {
+    color: Black;
+    font-weight: 700;
+}
+
+/* Styles for the ink bar */
+::ng-deep .mat-ink-bar {
+    background-color: gray !important;
+}
