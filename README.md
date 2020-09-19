@@ -11,5 +11,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 On landing, the user will be greeted with the login page. The user will not be able to load the "posts" page until they have logged in.
 If they try, they will be redirected to this page.
 
-![Login Page](/ScreenShots/Login.png)
-Format: ![Log in]
+![Login Page](https://github.com/KaiChan01/Angular-Users-Post-App/blob/master/ScreenShots/Login.PNG)
