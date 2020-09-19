@@ -3,6 +3,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EmailErrorMatcher } from '../Global/ErrorMatchers/EmailErrorMatcher';
 import { ApiService } from '../Global/Services/api-service';
 import { HttpParams } from '@angular/common/http';
+import { UserService } from '../Global/Services/user-service';
+import { User } from '../Global/Model/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -16,16 +19,16 @@ export class LoginPageComponent implements OnInit {
   });
 
   public emailErrorMatcher = new EmailErrorMatcher();
-  public showErrorMessage = false;
   public noUserFoundMessage = 'No user is associated with that email';
+  public showErrorMessage = false;
 
-  constructor(private apiService: ApiService) {
-
+  constructor(
+    private apiService: ApiService,
+    private userService: UserService,
+    private router: Router
+    ) {
    }
-
-  ngOnInit(): void {
-  }
-
+   
   get emailControl(): any{
     return this.emailForm.get('email');
   }
@@ -40,7 +43,13 @@ export class LoginPageComponent implements OnInit {
       data => {
         if(data.length) {
           console.log(data);
-          //Redirect
+
+          /* 
+          Just a note here, for this functionality I think it would be better to have a different endpoint to get a single user object instead, to avoid hard coding data[0]
+          I am assuming the emails are unqiue (I see they are unique from the "get all" request).
+          */
+          this.userService.setUserAfterSuccessfulLogin(data[0] as User);
+          this.router.navigateByUrl('/posts')
         } else {
           //No user returned
           this.showErrorMessage = true;
