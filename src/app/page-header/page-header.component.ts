@@ -31,7 +31,7 @@ export class PageHeaderComponent implements OnInit  {
   }
 
   signOut() {
-    this.userService.signoutUser();
+    this.userService.signOutUser();
     this.router.navigateByUrl('/login')
   }
 }

@@ -34,6 +34,7 @@ export class LoginPageComponent {
     return this.emailForm.get('email');
   }
 
+  // Sending email to users endpoint for validation 
   submitEmail(): void {
     this.showErrorMessage = false;
 
@@ -53,8 +54,6 @@ export class LoginPageComponent {
           //No user returned, show error message
           this.showErrorMessage = true;
         }
-
-        //Add error handling here 
       },
       // Basic error handling
       error => {

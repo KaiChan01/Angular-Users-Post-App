@@ -14,12 +14,14 @@ export class UserService implements CanActivate {
         this.user = JSON.parse(localStorage.getItem(this.localStorageString));
     }
     
+    // Saving user in local storage for this exercise
     setUserAfterSuccessfulLogin(user: User) {
         this.user = user;
         localStorage.setItem(this.localStorageString, JSON.stringify(this.user));
     }
 
-    signoutUser() {
+    // Signing out removes user from localstorage
+    signOutUser() {
         localStorage.removeItem(this.localStorageString);
     }
 
@@ -28,7 +30,8 @@ export class UserService implements CanActivate {
     }
 
     /*
-    A guard to ensure the user is logged in before being able to go to "Posts page"
+    A guard to ensure the user is logged in before being able to go to "Posts page".
+    User is redirected to login page if not logged in properly
     Ideally, an authentication guard is created seperately but for the sake of file space and time I reused this class for this particular exercise.
     */
     canActivate(): boolean {

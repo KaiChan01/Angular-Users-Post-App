@@ -10,11 +10,8 @@ export class ApiService {
 
     private service = environment.serviceURL;
 
-    
-
     constructor(private http: HttpClient) {
     }
-
 
     getRequest<T>(endpoint: string, params?: HttpParams) {
         const finalURL = this.service + endpoint;

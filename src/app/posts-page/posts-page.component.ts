@@ -35,7 +35,6 @@ export class PostsPageComponent implements OnInit {
         this.filterOwnUserPosts();
         this.filterOtherPosts() 
       },
-      // Basic error handling
       error => {
         console.error(error);
       }

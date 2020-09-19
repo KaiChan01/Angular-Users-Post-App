@@ -12,6 +12,7 @@ import { forkJoin } from 'rxjs';
 })
 export class OtherPostComponent implements OnInit{
 
+  // Input of all other user's posts
   @Input() posts: Post[];
 
   public userNamesMap = {};
@@ -24,10 +25,13 @@ export class OtherPostComponent implements OnInit{
     this.createUserNameMap();
   }
 
+  // populating a map of user id -> user name
   createUserNameMap() {
+    // This searched ID array is used to prevent making multiple requests for the same user ID
     const searchedIds = [];
     const userRequestArray = [];
     this.posts.forEach(post => {
+      //Using the user's id as a parameter to the user endpoint, I can retrieve the user informate and extract the username
       if(!searchedIds.find(id => post.userId === id)) {
         const param = new HttpParams().set('id', post.userId.toString());
         userRequestArray.push(this.apiService.getRequest<Object[]>(usersEndpoint, param));
@@ -35,12 +39,17 @@ export class OtherPostComponent implements OnInit{
       }
     });
 
+    //Using forkjoin for all requests to return before creating the object map 
     forkJoin(userRequestArray).subscribe(
       userData => {
         userData.forEach(user => {
           this.userNamesMap[user[0]['id']] = user[0]['username'];
         });
+        // Once ready, we can display other user's posts and their names
         this.otherPostsReady = true;
+      },
+      error => {
+        console.error(error);
       }
     )
   }
